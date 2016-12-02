@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux'
-import decisionsReducer from './decisions-reducer'
-import activeDecisionReducer from './decisions-active-decision'
+import processesReducer from './processes'
+import activeProcess from './activeProcess'
+import businessAreas from './businessAreas'
+
 const allReducers = combineReducers({
-  decisions: decisionsReducer,
-  activeDecision: activeDecisionReducer
+  processes: processesReducer,
+  activeProcess: activeProcess,
+  businessAreas: businessAreas
 })
 
 export default allReducers

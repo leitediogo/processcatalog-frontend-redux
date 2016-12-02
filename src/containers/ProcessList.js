@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { selectDecision } from '../actions/actions'
+import { selectProcess } from '../actions'
 
-class DecisionList extends Component {
+class ProcessList extends Component {
 
     createListItems() {
-        return this.props.decisions.map((decision) => {
+        return this.props.processes.map((process) => {
             return (
                 <li
-                    key={decision.id}
-                    onClick={() => this.props.selectDecision(decision)}
-                    > name : {decision.name} 
+                    key={process.id}
+                    onClick={() => this.props.selectProcess(process)}
+                    > name : {process.name} 
                 </li>
             )
         })
@@ -30,12 +30,12 @@ class DecisionList extends Component {
 
 function mapStateToProps(state) {
     return {
-        decisions: state.decisions
+        processes: state.processes
     }
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({selectDecision: selectDecision}, dispatch)
+    return bindActionCreators({selectProcess: selectProcess}, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(DecisionList)
+export default connect(mapStateToProps, matchDispatchToProps)(ProcessList)
